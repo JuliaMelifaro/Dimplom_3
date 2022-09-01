@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -20,18 +21,24 @@ public class Registration {
             "/a[@href='/']"));
     private SelenideElement passwordError = $(By.xpath(".//p[text()='Некорректный пароль']"));
 
+    @Step("Typing user name")
     public void setUserName (String userName) {this.userName.setValue(userName); }
+    @Step("Typing email")
     public void setUserEmail (String userEmail) {
         this.userEmail.setValue(userEmail);
     }
+    @Step("Typing password")
     public void setUserPassword (String userPassword) {this.userPassword.setValue(userPassword);}
+    @Step("Clicking registration button")
     public void clickingRegistrationButton() {registrationButton.click();}
+    @Step("Clicking login button")
     public UserEnter clickingLoginButton(){
         enterButton.click();
         UserEnter userPage = page(UserEnter.class);
         return userPage;
     }
 
+    @Step("Registering user attempt")
     public void RegisteringUser(String userName, String userEmail, String userPassword){
         setUserName (userName);
         setUserEmail (userEmail);
@@ -39,6 +46,7 @@ public class Registration {
         clickingRegistrationButton();
     }
 
+    @Step("Registering new user")
     public UserEnter RegisteringUserRight(String userName, String userEmail, String userPassword){
         setUserName (userName);
         setUserEmail (userEmail);
@@ -53,10 +61,12 @@ public class Registration {
         return passwordError.isDisplayed();
     }
 
+    @Step("Clicking constructor button")
     public void clickingConstructorButton(){
         constructorButton.click();
     }
 
+    @Step("Clicking stellar burger icon")
     public void clickingSiteIcon(){
         stellarIcon.click();
     }

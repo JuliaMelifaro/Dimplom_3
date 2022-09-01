@@ -1,6 +1,7 @@
 package webdriver;
 
 import com.codeborne.selenide.Configuration;
+import io.qameta.allure.Step;
 import pages.Constructor;
 import pages.RecoveryPassword;
 import pages.Registration;
@@ -12,7 +13,8 @@ public class createPages {
    // static String setBrowser = "firefox";
    static String setBrowser = "chrome";
 
-    public static Registration createNewRegistrationPage(){
+   @Step("Creating new registration page")
+   public static Registration createNewRegistrationPage(){
         Configuration.browserSize = "1920x1080";
         Configuration.browser = setBrowser;
         open(Registration.URL);
@@ -20,6 +22,7 @@ public class createPages {
         return regPage;
     }
 
+    @Step("Creating new constructor page")
     public static Constructor createNewConstructorPage(){
         Configuration.browserSize = "1920x1080";
         Configuration.browser = setBrowser;
@@ -28,6 +31,7 @@ public class createPages {
         return mainPage;
     }
 
+    @Step("Creating new recovery page")
     public static RecoveryPassword createNewRecoveryPage(){
         Configuration.browserSize = "1920x1080";
         Configuration.browser = setBrowser;
@@ -36,6 +40,7 @@ public class createPages {
         return recoveryPage;
     }
 
+    @Step("Creating new user enter page")
     public static UserEnter createNewEnterPage(){
         Configuration.browserSize = "1920x1080";
         Configuration.browser = setBrowser;

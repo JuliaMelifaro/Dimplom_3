@@ -19,7 +19,6 @@ public class UserEnteringTest {
     String testEmail;
     String testPassword;
 
-
     @Before
     public void creatingUser(){
         String testName = "HungryUser" + Math.random()*1000;
